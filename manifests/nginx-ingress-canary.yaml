@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    traefik.ingress.kubernetes.io/service-weights: |
+      app-service-blue: 50%
+      app-service-green: 50%
+  name: canary-ingress
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: mylab.local
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: app-service-blue
+              port:
+                number: 8080
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: app-service-green
+              port:
+                number: 8080
