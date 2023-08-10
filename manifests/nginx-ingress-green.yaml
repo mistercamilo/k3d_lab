@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress-green
+  name: napp-service-green-ingress
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -11,14 +11,7 @@ spec:
     - host: mylab.local # Substitua pelo seu domínio ou IP
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app-service-green
-                port:
-                  number: 8080
-          - path: /
+          - path: /green
             pathType: Prefix
             backend:
               service:

@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress-blue
+  name: app-service-blue-ingress
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -11,17 +11,10 @@ spec:
     - host: mylab.local # Substitua pelo seu domínio ou IP
       http:
         paths:
-          - path: /
+          - path: /blue
             pathType: Prefix
             backend:
               service:
                 name: app-service-blue
-                port:
-                  number: 8080
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app-service-green
                 port:
                   number: 8080

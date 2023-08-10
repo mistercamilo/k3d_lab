@@ -1,17 +1,8 @@
 Images for tests:
-gcr.io/kuar-demo/kuard-amd64:v0.9-blue
-gcr.io/kuar-demo/kuard-amd64:blue
-gcr.io/kuar-demo/kuard-amd64:v0.9-green
-gcr.io/kuar-demo/kuard-amd64:green
-gcr.io/kuar-demo/kuard-amd64:v0.9-purple
-gcr.io/kuar-demo/kuard-amd64:purple
+https://hub.docker.com/r/amasucci/bluegreen
 
 Docker Image for memory and cpu high comsumption testing
 https://hub.docker.com/r/jfusterm/stress/
-
-kubectl create -f deployment.yaml
-kubectl apply -f deployment.yaml
-
 
 https://k3d.io/v5.0.1/usage/exposing_services/
 
