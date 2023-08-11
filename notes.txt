@@ -11,3 +11,8 @@ https://doc.traefik.io/traefik/v1.7/user-guide/kubernetes/
 https://hub.docker.com/r/amasucci/bluegreen
 
 https://k3d.io/v5.1.0/usage/configfile/
+
+Instalar o istioctl
+curl -L https://istio.io/downloadIstio | sh -
+
+https://istio.io/latest/docs/setup/install/helm/

@@ -1,22 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-green
+  name: alpaca-prod
+  labels:
+    app: "alpaca"
+    ver: "1"
+    env: "prod"
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: app-green
+      app: alpaca
+      ver: "1"
+      env: prod
   template:
     metadata:
       labels:
-        app: app-green
+        app: alpaca
+        ver: "1"
+        env: prod
     spec:
       containers:
         - name: nginx-container
-          image: amasucci/bluegreen
+          image: gcr.io/kuar-demo/kuard-amd64:blue
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: http
           resources:
             requests:
@@ -27,4 +35,5 @@ spec:
               memory: 512Mi
           env:
             - name: COLOR
-              value: green 
+              value: blue
+---
